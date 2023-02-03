@@ -31,3 +31,10 @@ def index(request):
         # thrid argument is the data to be passed to the template view
         # pass form as second property to data dictonary
         return render(request, 'index.html', {'todos': todos, 'form': form})
+    
+def remove(request, id):
+    # use the Todo objects method to get the specific primary key mathcing the id parameter then delete
+    Todo.objects.get(pk=id).delete()
+    # then redirect to index
+    return HttpResponseRedirect("/index/")
+    

@@ -9,7 +9,13 @@
     {% endcomment %}
 
     {% for todo in todos %}
-        <li><h1>{{todo.title}}</h1><p>{{todo.details}}</p></li>
+        <li>
+            <h3>{{todo.title}}</h3>
+            <p>{{todo.details}}</p>
+        </li>
+        <form action="/delete/{{todo.id}}/" method="POST">
+            <button type='submit'>Remove</button>
+        </form>
     {% comment %} endfor, endif, for a while loop use a combo of for with range endrange {% endcomment %}
     {% endfor %}
 </ul>

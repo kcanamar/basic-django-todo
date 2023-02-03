@@ -15,9 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from todos.views import index
+# remember to import functions to pass to views
+from todos.views import index, remove
 
+# dont forget the trailing / in the path definitions
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('index/', index)
+    path('index/', index),
+    path('delete/<int:id>/', remove)
 ]
