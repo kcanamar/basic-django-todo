@@ -1,1 +1,15 @@
-<h1>It Works!</h1>
+{% comment %} <h1>It Works!</h1> {% endcomment %}
+
+<h1>The Days Todos</h1>
+<ul>
+    {% comment %} 
+       Jinja Syntax 
+            use two curly brackets {{}} to insert values
+            use curly brakcet percent to esacpe back to python land {% valid python %} statements that dont have outputs
+    {% endcomment %}
+
+    {% for todo in todos %}
+        <li><h1>{{todo.title}}</h1><p>{{todo.details}}</p></li>
+    {% comment %} endfor, endif, for a while loop use a combo of for with range endrange {% endcomment %}
+    {% endfor %}
+</ul>
