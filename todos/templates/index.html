@@ -14,12 +14,15 @@
             <p>{{todo.details}}</p>
         </li>
         <form action="/delete/{{todo.id}}/" method="POST">
+            {% csrf_token %}
             <button type='submit'>Remove</button>
         </form>
+        <a href="/update/{{todo.id}}">[Edit]</a>
     {% comment %} endfor, endif, for a while loop use a combo of for with range endrange {% endcomment %}
     {% endfor %}
 </ul>
 <form action="/index/" method='post'>
+    {% csrf_token %}
     {{form}}
     <button type="submit">Submit</button>
 </form>

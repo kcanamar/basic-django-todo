@@ -37,4 +37,17 @@ def remove(request, id):
     Todo.objects.get(pk=id).delete()
     # then redirect to index
     return HttpResponseRedirect("/index/")
+
+def update(request, id):
+    # use the Todo obejects method to get the specific primary key mathcing the id parameter 
+    todo = Todo.objects.get(pk=id)
     
+    if request.method == 'POST':
+        form = TodoForm(request.POST, instance=todo).save()
+        return HttpResponseRedirect("/index/")
+    if request.method == 'GET':
+        # populate a update form with existing todo
+        form = TodoForm(instance=todo)
+        # render an update template with populated form
+        return render(request, 'update.html', {'form': form})
+        

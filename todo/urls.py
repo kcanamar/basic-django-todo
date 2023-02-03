@@ -16,11 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 # remember to import functions to pass to views
-from todos.views import index, remove
+from todos.views import index, remove, update
 
 # dont forget the trailing / in the path definitions
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('index/', index),
-    path('delete/<int:id>/', remove)
+    path('delete/<int:id>/', remove),
+    path('update/<int:id>/', update)
 ]
